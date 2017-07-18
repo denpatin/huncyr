@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <title>HunCyr</title>
+  <script type="text/javascript">
+    function transform() {
+      let input = document.getElementById('input').value;
+      const original = [
+        "dzs", "cs", "dz", "gy", "ly", "ny", "sz", "ty", "zs", "ch",
+        "a", "á", "b", "c", "d", "e", "é", "f", "g", "h",
+        "i", "í", "j", "k", "l", "m", "n", "o", "ó", "ö",
+        "ő", "p", "r", "s", "t", "u", "ú", "ü", "ű", "v", "z"
+      ];
+      const converted = [
+        "ӝ", "ч", "ӟ", "ѓ", "љ", "њ", "с", "ќ", "ж", "х",
+        "а", "ӓ", "б", "ц", "д", "е", "ё", "ф", "г", "х",
+        "і", "ї", "й", "к", "л", "м", "н", "о", "ӧ", "ө",
+        "ӫ", "п", "р", "ш", "т", "у", "ӱ", "ы", "ӹ", "в", "з"
+      ];
+      for (let i = 0; i < original.length; i++) {
+        input = input.replace(new RegExp(original[i], "gi"), converted[i]);
+      }
+      document.getElementById('output').value = input;
+    }
+  </script>
+</head>
+<body>
+<label for="input">Latin ábécével:</label><br/>
+<textarea id="input" rows="5" cols="100" onkeyup="transform();"></textarea>
+<br/>
+<label for="output">Cirill ábécével:</label><br/>
+<textarea id="output" rows="5" cols="100"></textarea>
+</body>
+</html>

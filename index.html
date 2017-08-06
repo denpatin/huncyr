@@ -3,33 +3,71 @@
 <head>
   <meta charset="UTF-8">
   <title>HunCyr</title>
-  <script type="text/javascript">
-    function transform() {
-      let input = document.getElementById('input').value;
-      const original = [
-        "dzs", "cs", "dz", "gy", "ly", "ny", "sz", "ty", "zs", "ch",
-        "a", "á", "b", "c", "d", "e", "é", "f", "g", "h",
-        "i", "í", "j", "k", "l", "m", "n", "o", "ó", "ö",
-        "ő", "p", "r", "s", "t", "u", "ú", "ü", "ű", "v", "z"
-      ];
-      const converted = [
-        "ӝ", "ч", "ӟ", "ѓ", "љ", "њ", "с", "ќ", "ж", "х",
-        "а", "ӓ", "б", "ц", "д", "е", "ё", "ф", "г", "х",
-        "і", "ї", "й", "к", "л", "м", "н", "о", "ӧ", "ө",
-        "ӫ", "п", "р", "ш", "т", "у", "ӱ", "ы", "ӹ", "в", "з"
-      ];
-      for (let i = 0; i < original.length; i++) {
-        input = input.replace(new RegExp(original[i], "gi"), converted[i]);
-      }
-      document.getElementById('output').value = input;
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <style>
+    textarea {
+      font-family: 'Roboto', sans-serif;
+      font-size: 16px;
     }
-  </script>
+  </style>
 </head>
-<body>
+<body onload="initialize();">
 <label for="input">Latin ábécével:</label><br/>
-<textarea id="input" rows="5" cols="100" onkeyup="transform();"></textarea>
+<textarea id="input"
+          rows="10"
+          cols="120"
+          onkeyup="transform(this.value);">
+</textarea>
 <br/>
 <label for="output">Cirill ábécével:</label><br/>
-<textarea id="output" rows="5" cols="100"></textarea>
+<textarea id="output"
+          rows="10"
+          cols="120">
+</textarea>
+<script type="text/javascript">
+  let initString = 'A magyar nyelv az uráli nyelvcsalád tagja, a finnugor ' +
+      'nyelvek közé tartozó ugor nyelvek egyike.\nA legnagyobb finnugor (és ' +
+      'egyben uráli) nyelv.\nLegközelebbi rokonai a manysi és a hanti ' +
+      'nyelv, majd utánuk az udmurt, a komi, a mari és a mordvin nyelvek.\n' +
+      'Vannak olyan vélemények, melyek szerint a moldvai csángó önálló ' +
+      'nyelv —\nkülönösen annak északi, középkori változata, — így ez volna ' +
+      'a magyar legközelebbi rokonnyelve.\nA magyar nyelv legtöbb beszélője ' +
+      'Magyarországon él.\nMagyarországon kívül főleg a Kárpát-medence ' +
+      'többi országában beszélik:\nRománia (főként Erdély), Szlovákia, ' +
+      'Szerbia (a Vajdaság), Ukrajna (Kárpátalja), Horvátország, Szlovénia ' +
+      'és Ausztria területén.';
+
+  function transform(input) {
+    const original = [
+      'dzs', 'Dzs', 'cs', 'dz', 'gy', 'ly', 'ny', 'sz', 'ty', 'zs', 'ch',
+      'Cs', 'Dz', 'Gy', 'Ly', 'Ny', 'Sz', 'Ty', 'Zs', 'Ch',
+      'a', 'á', 'b', 'c', 'd', 'e', 'é', 'f', 'g', 'h',
+      'i', 'í', 'j', 'k', 'l', 'm', 'n', 'o', 'ó', 'ö',
+      'ő', 'p', 'r', 's', 't', 'u', 'ú', 'ü', 'ű', 'v', 'z',
+      'A', 'Á', 'B', 'C', 'D', 'E', 'É', 'F', 'G', 'H',
+      'I', 'Í', 'J', 'K', 'L', 'M', 'N', 'O', 'Ó', 'Ö',
+      'Ő', 'P', 'R', 'S', 'T', 'U', 'Ú', 'Ü', 'Ű', 'V', 'Z',
+    ];
+    const converted = [
+      'ӝ', 'Ӝ', 'ч', 'ӟ', 'ѓ', 'љ', 'њ', 'с', 'ќ', 'ж', 'х',
+      'Ч', 'Ӟ', 'Ѓ', 'Љ', 'Њ', 'С', 'Ќ', 'Ж', 'Х',
+      'а', 'ӓ', 'б', 'ц', 'д', 'е', 'ё', 'ф', 'г', 'х',
+      'і', 'ї', 'й', 'к', 'л', 'м', 'н', 'о', 'ӧ', 'ө',
+      'ӫ', 'п', 'р', 'ш', 'т', 'у', 'ӱ', 'ы', 'ӹ', 'в', 'з',
+      'А', 'Ӓ', 'Б', 'Ц', 'Д', 'Е', 'Ё', 'Ф', 'Г', 'Х',
+      'І', 'Ї', 'Й', 'К', 'Л', 'М', 'Н', 'О', 'Ӧ', 'Ө',
+      'Ӫ', 'П', 'Р', 'Ш', 'Т', 'У', 'Ӱ', 'Ы', 'Ӹ', 'В', 'З',
+    ];
+    for (let i = 0; i < original.length; i++) {
+      input = input.replace(new RegExp(original[i], 'g'), converted[i]);
+    }
+    document.getElementById('output').value = input;
+  }
+
+  function initialize() {
+    document.getElementById('input').value = initString;
+    transform(initString);
+  }
+</script>
 </body>
 </html>

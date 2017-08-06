@@ -25,7 +25,7 @@
           cols="120">
 </textarea>
 <script type="text/javascript">
-  let initString = '= Magyarország himnusza =\n\n' +
+  let initString = '= MAGYARORSZÁG HIMNUSZA =\n\n' +
       'Isten, áldd meg a magyart\n' +
       'Jó kedvvel, bőséggel,\n' +
       'Nyújts feléje védő kart,\n' +
@@ -37,8 +37,9 @@
 
   function transform(input) {
     const original = [
-      'dzs', 'Dzs', 'cs', 'dz', 'gy', 'ly', 'lj', 'ny', 'sz', 'ty', 'zs', 'ch',
-      'Cs', 'Dz', 'Gy', 'Ly', 'Ny', 'Sz', 'Ty', 'Zs', 'Ch',
+      'dzs', 'Dzs', 'DZS', 'cs', 'dz', 'gy', 'ly', 'lj', 'ny', 'sz', 'ty', 'zs',
+      'ch', 'Cs', 'Dz', 'Gy', 'Ly', 'Ny', 'Sz', 'Ty', 'Zs', 'Ch',
+      'CS', 'DZ', 'GY', 'LY', 'NY', 'SZ', 'TY', 'ZS', 'CH',
       'a', 'á', 'b', 'c', 'd', 'e', 'é', 'f', 'g', 'h',
       'i', 'í', 'j', 'k', 'l', 'm', 'n', 'o', 'ó', 'ö',
       'ő', 'p', 'r', 's', 't', 'u', 'ú', 'ü', 'ű', 'v', 'z',
@@ -47,8 +48,9 @@
       'Ő', 'P', 'R', 'S', 'T', 'U', 'Ú', 'Ü', 'Ű', 'V', 'Z',
     ];
     const converted = [
-      'ӝ', 'Ӝ', 'ч', 'ӟ', 'ѓ', /*'љ',*/ 'й', 'й', 'њ', 'с', 'ќ', 'ж', 'х',
-      'Ч', 'Ӟ', 'Ѓ', /*'Љ',*/ 'Й', 'Њ', 'С', 'Ќ', 'Ж', 'Х',
+      'ӝ', 'Ӝ', 'Ӝ', 'ч', 'ӟ', 'ѓ', /*'љ',*/ 'й', 'й', 'њ', 'с', 'ќ', 'ж',
+      'х', 'Ч', 'Ӟ', 'Ѓ', /*'Љ',*/ 'Й', 'Њ', 'С', 'Ќ', 'Ж', 'Х',
+      'Ч', 'Ӟ', 'Ѓ', 'Й', 'Њ', 'С', 'Ќ', 'Ж', 'Х',
       'о̆', 'а', 'б', 'ц', 'д', 'э', 'е', 'ф', 'г', 'х',
       'и', 'ӣ', 'й', 'к', 'л', 'м', 'н', 'о', 'о̄', 'ё',
       'ё̄', 'п', 'р', 'ш', 'т', 'у', 'ӯ', 'ю', 'ю̄', 'в', 'з',
